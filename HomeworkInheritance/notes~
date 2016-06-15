@@ -1,0 +1,22 @@
+namespace Softuni
+
+class Member
+
+class Student : public Member
+
+class Teacher : public Member
+
+class PermanentTeacher : public Teacher
+
+class GuestTeacher : public Teacher
+
+
+
+or
+
+
+class Teacher : public Member
+
+class GuestTeacher : private Teacher
+
+hide unnecessary properties
