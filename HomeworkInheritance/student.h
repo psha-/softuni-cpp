@@ -1,19 +1,37 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#include <iostream>
 #include "member.h"
 
 namespace SoftUni {
 
 class Student : public Member {
 public:
+    Student();
     Student(unsigned short id, std::string name, Course* currentCourse, unsigned short currentCoursePoints, float avgMark);
-    friend std::ostream& operator<<(std::ostream& os, const Student& student);
+    inline unsigned short getCurrentCoursePoints() const
+    {
+        return m_currentCoursePoints;
+    }
+    inline void setCurrentCoursePoints(unsigned short currentCoursePoints)
+    {
+        m_currentCoursePoints = currentCoursePoints;
+    }
+    inline float getAvgMark() const
+    {
+        return m_avgMark;
+    }
+    inline void setAvgMark(float avgMark)
+    {
+        m_avgMark = avgMark;
+    }
+
 private:
-    unsigned short int m_currentCoursePoints;
+    unsigned short m_currentCoursePoints;
     float m_avgMark;
 };
 
 }
+
+
 #endif // STUDENT_H
