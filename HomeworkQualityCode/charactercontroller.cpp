@@ -9,6 +9,7 @@ float CharacterController::calculateObjectMaxJumpHeight() const
 {
     float initialJumpVelocity = m_RigidBody->getVelocity().y;
     float jumpTime = calculateAirborneTime() / 2;
+
     // v0 * t / 2
     return initialJumpVelocity * jumpTime / 2;
 }
