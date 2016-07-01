@@ -22,7 +22,7 @@ public:
         m_RigidBody->addForceOverTime(Vec2(0, getGameCharacter()->getJumpForce()), 1);
     }
 
-    float calculateObjectMaxJumpHeight() const;
+    float calculateObjectJumpHeight() const;
 
     float calculateAirborneTime() const;
 

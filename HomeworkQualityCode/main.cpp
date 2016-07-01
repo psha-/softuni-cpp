@@ -11,7 +11,7 @@ namespace game {
     {
         cout << "Maximum jump height of "
              << controller.getGameCharacter()->getName() << ": "
-             << controller.calculateObjectMaxJumpHeight() << " meters" << endl;
+             << controller.calculateObjectJumpHeight() << " meters" << endl;
 
         cout << "Time of jump of "
              << controller.getGameCharacter()->getName() << ": "
