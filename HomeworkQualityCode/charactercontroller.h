@@ -22,11 +22,11 @@ public:
         m_RigidBody->addForceOverTime(Vec2(0, getGameCharacter()->getJumpForce()), 1);
     }
 
-    float calculateObjectJumpHeight() const;
+    float calculateJumpHeight() const;
 
     float calculateAirborneTime() const;
 
-    bool canObjectJumpAtHeight(float) const;
+    bool canJumpAtHeight(float) const;
 
 };
 

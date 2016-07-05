@@ -6,13 +6,15 @@ CharacterController::CharacterController(GameScene* scene, GameCharacter* charac
 {
 }
 
-float CharacterController::calculateObjectJumpHeight() const
+float CharacterController::calculateJumpHeight() const
 {
     float initialJumpVelocity = m_RigidBody->getVelocity().y;
     float gravityAcceleration = m_Scene->getEnvironment()->getGravity();
 
     // h = (v^2 - v0^2) / 2 * a , where v=0
-    return pow(initialJumpVelocity, 2) / 2 / gravityAcceleration;
+    float jumpHeight = pow(initialJumpVelocity, 2) / 2 / gravityAcceleration;
+
+    return jumpHeight;
 }
 
 float CharacterController::calculateAirborneTime() const
@@ -20,10 +22,12 @@ float CharacterController::calculateAirborneTime() const
     float initialJumpVelocity = m_RigidBody->getVelocity().y;
 
     // t/2 = (2 * h) / (v0 + v), where v=0
-    return 4 * calculateObjectJumpHeight() / initialJumpVelocity;
+    float airborneTime = 2 * 2 * calculateJumpHeight() / initialJumpVelocity;
+
+    return airborneTime;
 }
 
-bool CharacterController::canObjectJumpAtHeight(float height) const
+bool CharacterController::canJumpAtHeight(float height) const
 {
-    return height < calculateObjectJumpHeight();
+    return height < calculateJumpHeight();
 }
