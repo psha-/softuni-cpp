@@ -30,6 +30,8 @@ public:
         return m_Objects[id];
     }
 
+    ~GameScene();
+
 private:
     GameEnvironment* m_Environment;
     std::unordered_map<unsigned int, GameObject*> m_Objects;

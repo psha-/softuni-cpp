@@ -42,6 +42,7 @@ namespace game {
 int main()
 {
     GameScene level1 = GameScene(new GameEnvironment(1, "Earth", 9.81));
+
     // My preference is jump force (in Newtons) instead of jump velocity (km/h). It's cleaner like this.
     level1.addObject(new GameCharacter(2, "Luke Skywalker", 75, 250));
     level1.addObject(new GameCharacter(3, "Darth Vader", 89, 250));
