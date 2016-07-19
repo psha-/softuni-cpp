@@ -1,48 +1,48 @@
+#include "fibonaccisequence.h"
+#include "primesequence.h"
+#include "sequencecollection.h"
+#include "operators.h"
 #include <iostream>
-#include <math.h>
-#include <thread>
-#include <stdexcept>
+#include <memory>
 
 // This program prints Fibonacci and Prime sequences in multiple threads.
 
 using namespace std;
 
-unsigned long long prevFibonacci1 = 0;
-unsigned long long prevFibonacci2 = 1;
-
-void printNextFibonacci()
+std::ostream& operator<<(std::ostream& os, const FibonacciElement& element)
 {
-    unsigned long long current = prevFibonacci1 + prevFibonacci2;
-    if(current < prevFibonacci2) {
-        throw out_of_range("Fibonacci number overflow");
-    }
-    prevFibonacci1 = prevFibonacci2;
-    prevFibonacci2 = current;
-    cout << current << endl;
+    os << "Fibonacci: " << element.m_Value;
+    return os;
 }
 
-unsigned long long prevPrime = 0;
-
-void printNextPrime()
+std::ostream& operator<<(std::ostream& os, const PrimeElement& element)
 {
-    unsigned long long current = prevPrime+1;
-    while(true) {
-        if(current < prevPrime) {
-            throw out_of_range("Fibonacci number overflow");
-        }
-        for(unsigned long long devider=sqrt(prevPrime); devider < prevPrime; devider++) {
-            if(prevPrime%devider == 0) {
-                cout << current << endl;
-            }
-        }
-        current++;
-    }
+    os << "Prime: " << element.m_Value;
+    return os;
 }
+
+std::ostream& operator<<(std::ostream& os, PrimeElement* element)
+{
+    os << "Prime: " << element->m_Value;
+    return os;
+}
+
+//std::ostream& operator<<(std::ostream& os, std::shared_ptr<Element> element)
+//{
+//    os << "Prime: ";
+////    os << "Prime: " << element->m_Value;
+//    return os;
+//}
+
 
 int main()
 {
-    thread fibonacciThread(printNextFibonacci);
-    thread primeThread(printNextPrime);
+    SequenceCollection* sequences = new SequenceCollection();
+    sequences->addSequence(new FibonacciSequence());
+    sequences->addSequence(new PrimeSequence());
+
+    sequences->printSequencesSimultaneously();
+
     return 0;
 }
 
