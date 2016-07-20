@@ -19,6 +19,23 @@ public:
         m_Sequences.push_back(std::shared_ptr<Sequence>(sequence));
     }
 
+    inline void removeSequence(Sequence* sequence)
+    {
+        // Linear complexity
+        for(auto it=m_Sequences.begin(); it!=m_Sequences.end(); it++) {
+            if(it->get()==sequence) {
+                m_Sequences.erase(it);
+            }
+        }
+    }
+
+    inline void joinAll()
+    {
+        for(auto it=m_Threads.begin(); it!=m_Threads.end(); it++) {
+            it->join();
+        }
+    }
+
     void printSequencesSimultaneously();
 
 private:

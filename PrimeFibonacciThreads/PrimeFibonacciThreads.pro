@@ -8,7 +8,9 @@ SOURCES += main.cpp \
     fibonaccisequence.cpp \
     primesequence.cpp \
     sequence.cpp \
-    sequencecollection.cpp
+    sequencecollection.cpp \
+    fibonaccielement.cpp \
+    primeelement.cpp
 LIBS += -pthread
 
 HEADERS += \
@@ -16,7 +18,6 @@ HEADERS += \
     fibonaccisequence.h \
     primesequence.h \
     sequencecollection.h \
-    operators.h \
     fibonaccielement.h \
     element.h \
     primeelement.h
