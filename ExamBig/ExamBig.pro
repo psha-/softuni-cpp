@@ -7,10 +7,15 @@ CONFIG += c++11
 LIBS += -pthread
 
 SOURCES += main.cpp \
-    mission.cpp
+    mission.cpp \
+    landingsite.cpp \
+    landingsitecontainer.cpp
 
 HEADERS += \
-    LocationType.h \
     mission.h \
-    datetime.h
+    datetime.h \
+    geocoordinates.h \
+    landingsite.h \
+    locationtype.h \
+    landingsitecontainer.h
 

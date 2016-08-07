@@ -45,8 +45,14 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../main.cpp 
-OBJECTS       = main.o
+SOURCES       = ../main.cpp \
+		../mission.cpp \
+		../landingsite.cpp \
+		../landingsitecontainer.cpp 
+OBJECTS       = main.o \
+		mission.o \
+		landingsite.o \
+		landingsitecontainer.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -284,8 +290,33 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../main.cpp 
+main.o: ../main.cpp ../landingsitecontainer.h \
+		../landingsite.h \
+		../locationtype.h \
+		../mission.h \
+		../datetime.h \
+		../geocoordinates.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../main.cpp
+
+mission.o: ../mission.cpp ../mission.h \
+		../datetime.h \
+		../geocoordinates.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mission.o ../mission.cpp
+
+landingsite.o: ../landingsite.cpp ../landingsite.h \
+		../locationtype.h \
+		../mission.h \
+		../datetime.h \
+		../geocoordinates.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o landingsite.o ../landingsite.cpp
+
+landingsitecontainer.o: ../landingsitecontainer.cpp ../landingsitecontainer.h \
+		../landingsite.h \
+		../locationtype.h \
+		../mission.h \
+		../datetime.h \
+		../geocoordinates.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o landingsitecontainer.o ../landingsitecontainer.cpp
 
 ####### Install
 

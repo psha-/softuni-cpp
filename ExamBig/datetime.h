@@ -4,6 +4,11 @@
 // The Day, Month and Year structs are necessary in order to not misorder the DateTime constructor. There are different date formats.
 // The time format though is always the same.
 struct Day {
+    explicit Day()
+    {
+
+    }
+
     explicit Day(unsigned short int val)
         :m_Val(val)
     {
@@ -12,6 +17,10 @@ struct Day {
 };
 
 struct Month {
+    explicit Month()
+    {
+
+    }
     explicit Month(unsigned short int val)
         :m_Val(val)
     {
@@ -20,6 +29,11 @@ struct Month {
 };
 
 struct Year {
+    explicit Year()
+    {
+
+    }
+
     explicit Year(unsigned short int val)
         :m_Val(val)
     {
@@ -29,7 +43,11 @@ struct Year {
 
 struct DateTime
 {
-    Date(const Day& day, const Month& month, const Year& year, unsigned short hour, unsigned short minute, unsigned short second)
+    DateTime()
+    {
+    }
+
+    DateTime(const Day& day, const Month& month, const Year& year, unsigned short hour, unsigned short minute, unsigned short second)
         : m_Day(day), m_Month(month), m_Year(year), m_Hour(hour), m_Minute(minute), m_Second(second)
     {
     }
