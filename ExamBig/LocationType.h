@@ -1,0 +1,9 @@
+#ifndef LOCATIONTYPE_H
+#define LOCATIONTYPE_H
+
+enum LocationType {
+    LOCATION_TYPE_GROUND,
+    LOCATION_TYPE_FLOATING,
+};
+
+#endif // LOCATIONTYPE_H
